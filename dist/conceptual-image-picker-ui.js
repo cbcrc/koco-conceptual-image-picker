@@ -4,10 +4,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _conceptualImagePicker = require('text!./conceptual-image-picker.html');
-
-var _conceptualImagePicker2 = _interopRequireDefault(_conceptualImagePicker);
-
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
@@ -24,9 +20,9 @@ var _kocoUrlUtilities = require('koco-url-utilities');
 
 var _kocoUrlUtilities2 = _interopRequireDefault(_kocoUrlUtilities);
 
-var _dialoger = require('dialoger');
+var _kocoDialoger = require('koco-dialoger');
 
-var _dialoger2 = _interopRequireDefault(_dialoger);
+var _kocoDialoger2 = _interopRequireDefault(_kocoDialoger);
 
 var _kocoSignalEmitter = require('koco-signal-emitter');
 
@@ -117,7 +113,7 @@ ImagePicker.prototype.selectImage = function () {
         settings: self.settings
     };
 
-    _dialoger2.default.show('conceptual-image', params).then(function (conceptualImage) {
+    _kocoDialoger2.default.show('conceptual-image', params).then(function (conceptualImage) {
         if (conceptualImage) {
             self.image(conceptualImage);
         }
@@ -138,5 +134,5 @@ exports.default = {
             return new ImagePicker(params, componentInfo);
         }
     },
-    template: _conceptualImagePicker2.default
+    template: template
 };
