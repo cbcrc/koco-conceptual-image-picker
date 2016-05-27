@@ -1,12 +1,11 @@
-import template from 'text!./conceptual-image-picker.html';
 import $ from 'jquery';
 import ko from 'knockout';
 import i18n from 'i18next';
-import urls from 'url-utilities';
-import dialoger from 'dialoger';
-import emitter from 'signal-emitter';
-import koMappingUtilities from 'mapping-utilities';
-import KoDisposer from 'disposer';
+import urls from 'koco-url-utilities';
+import dialoger from 'koco-dialoger';
+import emitter from 'koco-signal-emitter';
+import koMappingUtilities from 'koco-mapping-utilities';
+import KoDisposer from 'koco-disposer';
 
 
 var defaultSettings = {

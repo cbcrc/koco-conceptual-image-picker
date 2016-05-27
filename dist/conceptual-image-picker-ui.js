@@ -4,10 +4,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _conceptualImagePicker = require('text!./conceptual-image-picker.html');
-
-var _conceptualImagePicker2 = _interopRequireDefault(_conceptualImagePicker);
-
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
@@ -20,25 +16,25 @@ var _i18next = require('i18next');
 
 var _i18next2 = _interopRequireDefault(_i18next);
 
-var _urlUtilities = require('url-utilities');
+var _kocoUrlUtilities = require('koco-url-utilities');
 
-var _urlUtilities2 = _interopRequireDefault(_urlUtilities);
+var _kocoUrlUtilities2 = _interopRequireDefault(_kocoUrlUtilities);
 
-var _dialoger = require('dialoger');
+var _kocoDialoger = require('koco-dialoger');
 
-var _dialoger2 = _interopRequireDefault(_dialoger);
+var _kocoDialoger2 = _interopRequireDefault(_kocoDialoger);
 
-var _signalEmitter = require('signal-emitter');
+var _kocoSignalEmitter = require('koco-signal-emitter');
 
-var _signalEmitter2 = _interopRequireDefault(_signalEmitter);
+var _kocoSignalEmitter2 = _interopRequireDefault(_kocoSignalEmitter);
 
-var _mappingUtilities = require('mapping-utilities');
+var _kocoMappingUtilities = require('koco-mapping-utilities');
 
-var _mappingUtilities2 = _interopRequireDefault(_mappingUtilities);
+var _kocoMappingUtilities2 = _interopRequireDefault(_kocoMappingUtilities);
 
-var _disposer = require('disposer');
+var _kocoDisposer = require('koco-disposer');
 
-var _disposer2 = _interopRequireDefault(_disposer);
+var _kocoDisposer2 = _interopRequireDefault(_kocoDisposer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -57,12 +53,12 @@ var ImagePicker = function ImagePicker(params /*, componentInfo*/) {
     self.image = params.image;
     self.settings = _jquery2.default.extend({}, defaultSettings, params.settings);
     self.translatedRemoveTitle = _i18next2.default.t('koco-conceptual-image-picker.removeTitle');
-    self.settings.defaultImageUrl = _urlUtilities2.default.url(self.settings.defaultImageUrl);
+    self.settings.defaultImageUrl = _kocoUrlUtilities2.default.url(self.settings.defaultImageUrl);
 
     self.concreteImage = _knockout2.default.pureComputed(function () {
         var result = null;
 
-        var image = _mappingUtilities2.default.toJS(self.image);
+        var image = _kocoMappingUtilities2.default.toJS(self.image);
 
         if (image && image.concreteImages && image.concreteImages.length) {
             result = _knockout2.default.utils.arrayFirst(image.concreteImages, isImageShown);
@@ -71,7 +67,7 @@ var ImagePicker = function ImagePicker(params /*, componentInfo*/) {
         return result;
     });
 
-    self.koDisposer = new _disposer2.default();
+    self.koDisposer = new _kocoDisposer2.default();
     self.koDisposer.add(self.concreteImage);
 
     function isImageShown(item) {
@@ -103,7 +99,7 @@ var ImagePicker = function ImagePicker(params /*, componentInfo*/) {
     self.koDisposer.add(self.imageAlt);
 
     if (self.settings.imageForLineups) {
-        _signalEmitter2.default.addListener('image:imageForLineups', function (conceptualImage) {
+        _kocoSignalEmitter2.default.addListener('image:imageForLineups', function (conceptualImage) {
             self.image(conceptualImage);
         });
     }
@@ -117,7 +113,7 @@ ImagePicker.prototype.selectImage = function () {
         settings: self.settings
     };
 
-    _dialoger2.default.show('conceptual-image', params).then(function (conceptualImage) {
+    _kocoDialoger2.default.show('conceptual-image', params).then(function (conceptualImage) {
         if (conceptualImage) {
             self.image(conceptualImage);
         }
@@ -138,5 +134,5 @@ exports.default = {
             return new ImagePicker(params, componentInfo);
         }
     },
-    template: _conceptualImagePicker2.default
+    template: template
 };
