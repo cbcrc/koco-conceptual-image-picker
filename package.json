@@ -23,7 +23,7 @@
     "koco-mapping-utilities": "^1.1.0",
     "koco-signal-emitter": "^1.1.0",
     "koco-url-utilities": "^1.1.0",
-    "i18next": "^1.9.0",
+    "i18next": "^3.1.0",
     "jquery": "^2.1.4",
     "knockout": "^3.4.0"
   },
