@@ -15,7 +15,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "koco": "^1.0.0"
+    "koco": "^2.0.0"
   },
   "dependencies": {
     "koco-dialoger": "^1.1.0",
