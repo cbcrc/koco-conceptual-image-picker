@@ -18,7 +18,7 @@
     "koco": "^2.0.0"
   },
   "dependencies": {
-    "koco-dialoger": "^1.1.0",
+    "koco-dialoger": "^2.0.0",
     "koco-disposer": "^1.1.0",
     "koco-mapping-utilities": "^1.1.0",
     "koco-signal-emitter": "^1.1.0",
